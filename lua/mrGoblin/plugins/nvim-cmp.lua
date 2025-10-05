@@ -38,7 +38,7 @@ return {
         ["ƒ"] = cmp.mapping.scroll_docs(4), -- scroll docs down
         [" "] = cmp.mapping.complete(), -- show completion suggestions
         ["´"] = cmp.mapping.abort(), -- close completion window
-        ["<Tab>"] = cmp.mapping.confirm({ select = false }), -- confirm selection
+        ["<Tab>"] = cmp.mapping.confirm({ select = true }), -- confirm selection
       }),
       -- sources for autocompletion
       sources = cmp.config.sources({

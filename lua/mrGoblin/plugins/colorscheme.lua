@@ -45,7 +45,7 @@ return {
     vim.cmd("colorscheme tokyonight")
   end,
 }
-
+--
 -- night Owl
 -- return {
 --   "oxfist/night-owl.nvim",
@@ -53,9 +53,7 @@ return {
 --   priority = 1000,
 --   config = function()
 --     -- Setup the night-owl plugin first
---     require("night-owl").setup({
---       transparent_background = true,
---     })
+--     require("night-owl").setup({})
 --
 --     -- Then set the colorscheme
 --     vim.cmd("colorscheme night-owl")
