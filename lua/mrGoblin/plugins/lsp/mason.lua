@@ -53,6 +53,8 @@ return {
         "black", -- python formatter
         "pylint",
         "eslint_d",
+        "clang-format", -- cpp formatter
+        "pgformatter", -- sql formatter
       },
     })
   end,

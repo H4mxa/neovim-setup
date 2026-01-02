@@ -42,5 +42,6 @@ opt.splitbelow = true -- split horizontal window to the bottom
 opt.swapfile = false
 
 if vim.g.neovide then
-  vim.o.guifont = "CaskaydiaCove Nerd Font Mono:h14" -- or :h16 if you prefer larger
+  -- Syntax: "PrimaryFont, FallbackFont:size"
+  vim.o.guifont = "CaskaydiaCove Nerd Font Mono:h14"
 end

@@ -8,9 +8,6 @@ return {
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
 
-    -- Disable the default `<leader>e` keymap for NvimTree
-    vim.keymap.set("n", "<leader>e", "", { noremap = true, silent = true })
-
     nvimtree.setup({
       view = {
         width = 40,

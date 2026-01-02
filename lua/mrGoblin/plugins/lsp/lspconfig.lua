@@ -13,11 +13,69 @@ return {
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
     require("mason").setup()
-    require("mason-lspconfig").setup({
-      automatic_enable = true, -- auto enable servers installed via mason
-    })
-
+    
     local capabilities = cmp_nvim_lsp.default_capabilities()
+    
+    -- Configure mason-lspconfig with handlers for auto-setup
+    require("mason-lspconfig").setup({
+      handlers = {
+        -- Default handler for all servers
+        function(server_name)
+          lspconfig[server_name].setup({
+            capabilities = capabilities,
+          })
+        end,
+        -- Custom handlers for specific servers
+        ["lua_ls"] = function()
+          lspconfig.lua_ls.setup({
+            capabilities = capabilities,
+            settings = {
+              Lua = {
+                diagnostics = {
+                  globals = { "vim" },
+                },
+                completion = {
+                  callSnippet = "Replace",
+                },
+              },
+            },
+          })
+        end,
+        ["graphql"] = function()
+          lspconfig.graphql.setup({
+            capabilities = capabilities,
+            filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+          })
+        end,
+        ["emmet_language_server"] = function()
+          lspconfig.emmet_language_server.setup({
+            capabilities = capabilities,
+            filetypes = {
+              "css",
+              "eruby",
+              "html",
+              "javascript",
+              "javascriptreact",
+              "less",
+              "sass",
+              "scss",
+              "typescriptreact",
+            },
+            init_options = {
+              includeLanguages = {},
+              excludeLanguages = {},
+              extensionsPath = {},
+              preferences = {},
+              showAbbreviationSuggestions = true,
+              showExpandedAbbreviation = "always",
+              showSuggestionsAsSnippets = false,
+              syntaxProfiles = {},
+              variables = {},
+            },
+          })
+        end,
+      },
+    })
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -71,54 +129,6 @@ return {
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
-
-    -- Now use `vim.lsp.config()` to configure individual servers
-
-    vim.lsp.config("lua_ls", {
-      capabilities = capabilities,
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { "vim" },
-          },
-          completion = {
-            callSnippet = "Replace",
-          },
-        },
-      },
-    })
-
-    vim.lsp.config("graphql", {
-      capabilities = capabilities,
-      filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-    })
-
-    vim.lsp.config("emmet_language_server", {
-      capabilities = capabilities,
-      filetypes = {
-        "css",
-        "eruby",
-        "html",
-        "javascript",
-        "javascriptreact",
-        "less",
-        "sass",
-        "scss",
-        "pug",
-        "typescriptreact",
-      },
-      init_options = {
-        includeLanguages = {},
-        excludeLanguages = {},
-        extensionsPath = {},
-        preferences = {},
-        showAbbreviationSuggestions = true,
-        showExpandedAbbreviation = "always",
-        showSuggestionsAsSnippets = false,
-        syntaxProfiles = {},
-        variables = {},
-      },
-    })
   end,
 }
 

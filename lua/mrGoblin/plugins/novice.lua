@@ -41,7 +41,7 @@ return {
           },
         },
         notify = {
-          enabled = true, -- Enable notifications through noice
+          enabled = false, -- Disable to avoid conflict with nvim-notify
         },
       })
     end,

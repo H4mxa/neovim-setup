@@ -62,7 +62,7 @@ return {
       mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({
         { name = "path" }, -- file system paths
-        { name = "cmdline", option = { igonre_cmds = { "Man", "!" } } }, -- command-line completions
+        { name = "cmdline", option = { ignore_cmds = { "Man", "!" } } }, -- command-line completions
       }),
     })
   end,
