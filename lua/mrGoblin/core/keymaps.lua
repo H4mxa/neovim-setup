@@ -70,3 +70,20 @@ keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>:close<CR>", { desc = "Close terminal"
 keymap.set("i", "<S-CR>", "", { silent = true, noremap = true })
 keymap.set("i", "<S-Enter>", "", { silent = true, noremap = true })
 keymap.set("i", "<C-M>", "", { silent = true, noremap = true })
+
+-- Neovide specific keymaps
+if vim.g.neovide then
+	keymap.set(
+		"n",
+		"<D-=>",
+		":let g:neovide_scale_factor = g:neovide_scale_factor + 0.1<CR>",
+		{ silent = true, desc = "Increase font size" }
+	)
+	keymap.set(
+		"n",
+		"<D-->",
+		":let g:neovide_scale_factor = g:neovide_scale_factor - 0.1<CR>",
+		{ silent = true, desc = "Decrease font size" }
+	)
+	keymap.set("n", "<D-0>", ":let g:neovide_scale_factor = 1.0<CR>", { silent = true, desc = "Reset font size" })
+end
