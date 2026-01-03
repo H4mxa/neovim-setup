@@ -60,7 +60,6 @@ keymap.set("n", "<leader>bp", ":bprevious<CR>", { noremap = true, silent = true 
 keymap.set("n", "<leader>bx", ":bd<CR>", { noremap = true, silent = true }) -- kill current buffer
 
 -- ignore enter key
-keymap.set("i", "<S-CR>", "<Nop>", { silent = true })
 
 -- for terminal
 keymap.set("n", "<leader>tt", ":split | terminal<CR>", { desc = "Open terminal horizontal" })
