@@ -63,9 +63,16 @@ keymap.set("n", "<leader>bx", ":bd<CR>", { noremap = true, silent = true }) -- k
 keymap.set("i", "<S-CR>", "<Nop>", { silent = true })
 
 -- for terminal
-keymap.set("n", "<leader>tt", ":split | terminal<CR>", { desc = "Open terminal horizontal" })
-keymap.set("n", "<leader>tv", ":vsplit | terminal<CR>", { desc = "Open terminal vertical" })
-keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>:close<CR>", { desc = "Close terminal" })
+keymap.set("n", "<leader>tt", ":15split | terminal<CR>", { desc = "Open terminal horizontal" })
+keymap.set("n", "<leader>tv", ":80vsplit | terminal<CR>", { desc = "Open terminal vertical" })
+keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>:close<CR>", { desc = "Double escape to close terminal" })
+keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Signle esc to exit terminal mode" })
+
+-- Resize terminal pane with Option+arrows
+keymap.set("n", "<M-Up>", ":resize +2<CR>", { desc = "Increase height" })
+keymap.set("n", "<M-Down>", ":resize -2<CR>", { desc = "Decrease height" })
+keymap.set("n", "<M-Left>", ":vertical resize -2<CR>", { desc = "Decrease width" })
+keymap.set("n", "<M-Right>", ":vertical resize +2<CR>", { desc = "Increase width" })
 
 -- Disable Shift+Enter variations
 keymap.set("i", "<S-CR>", "", { silent = true, noremap = true })
