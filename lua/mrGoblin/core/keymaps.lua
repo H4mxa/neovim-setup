@@ -58,3 +58,15 @@ keymap.set("n", "∫", "<C-b>", { noremap = true, silent = true })
 keymap.set("n", "<leader>bn", ":bnext<CR>", { noremap = true, silent = true }) -- move to next buffer
 keymap.set("n", "<leader>bp", ":bprevious<CR>", { noremap = true, silent = true }) -- move to previous buffer
 keymap.set("n", "<leader>bx", ":bd<CR>", { noremap = true, silent = true }) -- kill current buffer
+
+-- ignore enter key
+
+-- for terminal
+keymap.set("n", "<leader>tt", ":split | terminal<CR>", { desc = "Open terminal horizontal" })
+keymap.set("n", "<leader>tv", ":vsplit | terminal<CR>", { desc = "Open terminal vertical" })
+keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>:close<CR>", { desc = "Close terminal" })
+
+-- Disable Shift+Enter variations
+keymap.set("i", "<S-CR>", "", { silent = true, noremap = true })
+keymap.set("i", "<S-Enter>", "", { silent = true, noremap = true })
+keymap.set("i", "<C-M>", "", { silent = true, noremap = true })
