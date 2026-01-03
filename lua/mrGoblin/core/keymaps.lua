@@ -62,7 +62,7 @@ keymap.set("n", "<leader>bx", ":bd<CR>", { noremap = true, silent = true }) -- k
 -- ignore enter key
 keymap.set("i", "<S-CR>", "<Nop>", { silent = true })
 
--- In your init.lua or config file
+-- for terminal
 keymap.set("n", "<leader>tt", ":split | terminal<CR>", { desc = "Open terminal horizontal" })
 keymap.set("n", "<leader>tv", ":vsplit | terminal<CR>", { desc = "Open terminal vertical" })
 keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>:close<CR>", { desc = "Close terminal" })
