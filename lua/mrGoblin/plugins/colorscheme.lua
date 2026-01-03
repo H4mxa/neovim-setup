@@ -60,7 +60,7 @@
 -- 	end,
 -- }
 --
--- -- Colour scheme for catpuccine
+-- -- Colour scheme for nightfly
 -- return {
 --   "bluz71/vim-nightfly-colors",
 --   name = "nightfly",
